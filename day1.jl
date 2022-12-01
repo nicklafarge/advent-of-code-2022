@@ -13,7 +13,7 @@ elf_num = 1
 
 #  Read lines into dataframe
 for line in readlines(f)
-    global calorie_count
+    global calorie_count, elf_num
     
     # Increment the calorie count, or move on to the next elf
     if cmp(line, "")==0
