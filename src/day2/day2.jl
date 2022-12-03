@@ -61,8 +61,8 @@ end
 
 
 # Open the input file
-# f = open("input/day2_sample_strategy.txt", "r")
-f = open("input/day2_strategy.txt", "r")
+# f = open("src/day2/day2_sample_strategy.txt", "r")
+f = open("src/day2/day2_strategy.txt", "r")
 df_round1 = DataFrame(Opponent=RPS[], Me=RPS[], Result=Result[], TotalScore=Int64[])
 df_round2 = DataFrame(Opponent=RPS[], Me=RPS[], Result=Result[], TotalScore=Int64[])
 

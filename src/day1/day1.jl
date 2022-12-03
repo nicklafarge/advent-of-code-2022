@@ -1,8 +1,8 @@
 using DataFrames
 
 # Open the input file
-f = open("input/day1_input.txt", "r")
-# f = open("input/day1_sample_input.txt", "r")
+f = open("src/day1/day1_input.txt", "r")
+# f = open("src/day1/day1_sample_input.txt", "r")
 
 # DataFrame to keep track of each elf
 df = DataFrame(ElfId=Int64[], Calories=Int64[])
