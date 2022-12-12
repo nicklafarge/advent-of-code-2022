@@ -28,4 +28,20 @@ std::vector<std::string> readLines(int day, bool sample) {
     return readLines(filename);
 }
 
+
+std::vector<std::string> splitString(const std::string& stringSplit,
+                                     const std::string& delimiter) {
+    size_t pos = 0;
+    std::string s = stringSplit;
+    std::string token;
+    std::vector<std::string> split;
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        split.push_back(s.substr(0, pos));
+        s.erase(0, pos + delimiter.length());
+    }
+    split.push_back(s.substr(0, pos));
+    return split;
+}
+
+
 }

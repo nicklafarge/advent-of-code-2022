@@ -4,17 +4,17 @@ using DataFrames
 f = open("src/day3/contents.txt", "r")
 
 
-struct Item
+struct Items
     id::Char
     priority::Int64
 end
 
 function createItem(id::Char) 
     unicode_offset = isuppercase(id) ? 38 : 96
-    return Item(id, Int(codepoint(id))-unicode_offset)
+    return Items(id, Int(codepoint(id))-unicode_offset)
 end
 
-df = DataFrame(BagNumber=Int64[], Group=Int64[], CompartmentNumber=Int64[], ItemList=Array{Item}[])
+df = DataFrame(BagNumber=Int64[], Group=Int64[], CompartmentNumber=Int64[], ItemList=Array{Items}[])
 group_counter = 1
 for (i, line) in enumerate(readlines(f))
     global group_counter
