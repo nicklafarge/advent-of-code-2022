@@ -69,7 +69,7 @@ auto runSimulation(int which, int nFollow) {
     for (auto i=0; i<nFollow; ++i)
         snake.push_back(Pos {0, 0});
 
-    // Vector of visited states by the tail
+    // Vector of visited_ states by the tail
     std::vector<Pos> visited;
     visited.push_back(snake.back());
 
@@ -114,7 +114,7 @@ auto runSimulation(int which, int nFollow) {
                 }
             }
 
-            // Ad the new tail to the visited list if needed
+            // Ad the new tail to the visited_ list if needed
             if(isNewTailPos)
                 visited.push_back(snake.back());
 
