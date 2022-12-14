@@ -19,18 +19,22 @@ public:
     : gridRows_(rows) , gridCols_(cols) , end_(end)
     , numVertices_(gridRows_ * gridCols_)
     , adjLists_(numVertices_, std::vector<int> {})
-    , visited_(), heights_(std::move(heightGrid))
+    , heights_(std::move(heightGrid))
     {}
 
     ///@brief add a connection from src->dest in the graph
     void addEdge(int src, int dest);
 
     ///@brief breadth first search, with terminal criteria controlled by partOne bool
-    auto BFS(int start, bool partOne, bool showPath);
+    auto BFS(int start, bool partOne);
 
     // Helper functions to convert between (x,y) and id=(x*nRows+y)
-    int rc2id(int x, int y);
-    std::vector<int> id2rc(int id);
+    int rc2id(int x, int y) const;
+    std::vector<int> id2rc(int id) const;
+
+    // Getter
+    int NumVertices() const;
+
 private:
     // Private member variables
     int gridRows_;
@@ -42,10 +46,10 @@ private:
     std::vector<std::vector<int>> heights_;
 };
 
-int Graph::rc2id(int x, int y) {
+int Graph::rc2id(int x, int y) const {
     return (x * gridCols_) + y;
 }
-std::vector<int> Graph::id2rc(int id) {
+std::vector<int> Graph::id2rc(int id) const {
     int x = std::floor(id / gridCols_);
     int y = id % gridCols_;
     return std::vector<int> {x, y};
@@ -56,7 +60,52 @@ void Graph::addEdge(int src, int dest) {
     if (std::count(adjLists_[src].begin(), adjLists_[src].end(), dest) == 0)
         adjLists_[src].push_back(dest);
 }
-auto Graph::BFS(int start, bool partOne, bool showPath) {
+
+
+int Graph::NumVertices() const { return numVertices_; }
+void plotGraphPath(const Graph& graph,
+                   std::vector<int> startEndPath,
+                   const std::vector<std::vector<int>>& heights,
+                   int startSymbolIdx=-1,
+                   int endSymbolIdx=-1
+                   )
+{
+    std::vector<char> printGrid(graph.NumVertices(), '.');
+
+    // Get the symbol to print
+    for (int i = 0; i < startEndPath.size() - 1; ++i) {
+        int now = startEndPath[i];
+        int next = startEndPath[i + 1];
+        if (now == next - 1) {          // moving right
+            printGrid[now] = '>';
+        } else if (now == next + 1) {   // moving left
+            printGrid[now] = '<';
+        } else if (now < next) {        // moving down
+            printGrid[now] = 'v';
+        } else if (now > next) {        // moving up
+            printGrid[now] = '^';
+        }
+    }
+
+    printGrid[startEndPath[0]] = 'S';
+    printGrid[startEndPath.back()] = 'E';
+
+    // Print them to the terminal
+    int nRows = static_cast<int>(heights.size());
+    int nCows = static_cast<int>(heights[0].size());
+
+    std::cout << std::endl;
+    for (int i = 0; i < nRows; ++i) {
+        for (int j = 0; j < nCows; ++j) {
+            int id = graph.rc2id(i, j);
+            auto color = printGrid[id] != '.' ? YELLOW : WHITE;
+            std::cout << color << printGrid[id] << RESET;
+        }
+        std::cout << std::endl;
+    }
+}
+
+auto Graph::BFS(int start, bool partOne) {
 
     // So we don't visit the same node twice
     visited_ = std::vector<bool>(numVertices_, false);
@@ -110,47 +159,11 @@ auto Graph::BFS(int start, bool partOne, bool showPath) {
         nextBack = previous[nextBack];
     }
 
-    // Optionally "plot" the shortest path in the terminal
-    if (showPath) {
-        std::vector<char> printGrid(numVertices_, '.');
-
-        // Get the symbol to print
-        for (int i = 0; i < startEndPath.size() - 1; ++i) {
-            int now = startEndPath[i];
-            int next = startEndPath[i + 1];
-            if (now == next - 1) {          // moving right
-                printGrid[now] = '>';
-            } else if (now == next + 1) {   // moving left
-                printGrid[now] = '<';
-            } else if (now < next) {        // moving down
-                printGrid[now] = 'v';
-            } else if (now > next) {        // moving up
-                printGrid[now] = '^';
-            }
-        }
-        if(partOne) // Add an S for part one (doesn't really make sense for part 2)
-            printGrid[start] = 'S';
-
-        // For showing the end state
-        printGrid[end_] = 'E';
-
-        // Print them to the terminal
-        std::cout << std::endl;
-        for (int i = 0; i < gridRows_; ++i) {
-            for (int j = 0; j < gridCols_; ++j) {
-                int id = i * gridCols_ + j;
-                auto color = printGrid[id] != '.' ? YELLOW : WHITE;
-                std::cout << color << printGrid[id] << RESET;
-            }
-            std::cout << std::endl;
-        }
-    }
-
     return startEndPath;
 }
 
 
-auto runSimulation(bool sample) {
+auto runSimulation(bool sample, bool plotOutput=true) {
     // Read in lines
     std::vector<std::string> all_lines = aoc::readLines(12, sample);
 
@@ -222,8 +235,12 @@ auto runSimulation(bool sample) {
 
     // Breadth-first search to find shortest path from S->E
     bool partOne = true;
-    bool plotOutput = true;
-    auto visitedOrder1 = g.BFS(start, partOne, plotOutput);
+
+    auto visitedOrder1 = g.BFS(start, partOne);
+
+    if (plotOutput)
+        plotGraphPath(g, visitedOrder1, heights);
+
     int nStepsPt1 = static_cast<int>(visitedOrder1.size());
     std::cout << "Shortest path (1): " << nStepsPt1 << std::endl;
 
@@ -257,9 +274,12 @@ auto runSimulation(bool sample) {
 
     // Breadth first search to find shortest parth from E->a
     partOne = false;
-    auto visitedOrder2 = g2.BFS(end, partOne, plotOutput);
+    auto visitedOrder2 = g2.BFS(end, partOne);
     int nStepsPt2 = static_cast<int>(visitedOrder2.size());
     std::cout << "Shortest path (2): " << nStepsPt2 << std::endl;
+
+    if (plotOutput)
+        plotGraphPath(g2, visitedOrder2, heights);
 }
 
 int main() {
