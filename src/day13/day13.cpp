@@ -154,6 +154,7 @@ auto runSimulation(bool sample) {
         allPackets.push_back(p2);
     }
 
+    // Compute the sum for part 1
     int pt1Sum = std::accumulate(correctOrderIxs.begin(), correctOrderIxs.end(), 0);
     std::cout << "Part 1: " << pt1Sum << std::endl;
 
@@ -163,14 +164,13 @@ auto runSimulation(bool sample) {
     allPackets.push_back(dividerOne);
     allPackets.push_back(dividerTwo);
 
-    // Sort the list of packets
+    // Sort the list of packets (based on the implemented < operator)
     std::sort(allPackets.begin(), allPackets.end());
 
     // Extract the requested value
     auto div1Ix = getPacketIndex(allPackets, dividerOne);
     auto div2Ix = getPacketIndex(allPackets, dividerTwo);
     std::cout << "Part 2: " << div1Ix*div2Ix << std::endl;
-
 
 }
 
