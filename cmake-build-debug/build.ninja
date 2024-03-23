@@ -1,0 +1,880 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: scratch
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target aoc
+
+
+#############################################
+# Order-only phony target for aoc
+
+build cmake_object_order_depends_target_aoc: phony || src/CMakeFiles/aoc.dir
+
+build src/CMakeFiles/aoc.dir/util.cpp.o: CXX_COMPILER__aoc_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/util.cpp || cmake_object_order_depends_target_aoc
+  DEP_FILE = src/CMakeFiles/aoc.dir/util.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/CMakeFiles/aoc.dir
+  OBJECT_FILE_DIR = src/CMakeFiles/aoc.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target aoc
+
+
+#############################################
+# Link the static library src/libaoc.a
+
+build src/libaoc.a: CXX_STATIC_LIBRARY_LINKER__aoc_Debug src/CMakeFiles/aoc.dir/util.cpp.o
+  ARCH_FLAGS = -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = src/CMakeFiles/aoc.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/libaoc.a
+  TARGET_PDB = aoc.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/edit_cache: phony src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/rebuild_cache: phony src/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day7
+
+
+#############################################
+# Order-only phony target for day7
+
+build cmake_object_order_depends_target_day7: phony || cmake_object_order_depends_target_aoc
+
+build src/day7/CMakeFiles/day7.dir/day7.cpp.o: CXX_COMPILER__day7_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day7/day7.cpp || cmake_object_order_depends_target_day7
+  DEP_FILE = src/day7/CMakeFiles/day7.dir/day7.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day7/CMakeFiles/day7.dir
+  OBJECT_FILE_DIR = src/day7/CMakeFiles/day7.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day7
+
+
+#############################################
+# Link the executable src/day7/day7
+
+build src/day7/day7: CXX_EXECUTABLE_LINKER__day7_Debug src/day7/CMakeFiles/day7.dir/day7.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day7/CMakeFiles/day7.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day7/day7
+  TARGET_PDB = day7.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day7/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day7 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day7/edit_cache: phony src/day7/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day7/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day7 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day7/rebuild_cache: phony src/day7/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day8
+
+
+#############################################
+# Order-only phony target for day8
+
+build cmake_object_order_depends_target_day8: phony || cmake_object_order_depends_target_aoc
+
+build src/day8/CMakeFiles/day8.dir/day8.cpp.o: CXX_COMPILER__day8_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day8/day8.cpp || cmake_object_order_depends_target_day8
+  DEP_FILE = src/day8/CMakeFiles/day8.dir/day8.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day8/CMakeFiles/day8.dir
+  OBJECT_FILE_DIR = src/day8/CMakeFiles/day8.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day8
+
+
+#############################################
+# Link the executable src/day8/day8
+
+build src/day8/day8: CXX_EXECUTABLE_LINKER__day8_Debug src/day8/CMakeFiles/day8.dir/day8.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day8/CMakeFiles/day8.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day8/day8
+  TARGET_PDB = day8.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day8/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day8 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day8/edit_cache: phony src/day8/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day8/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day8 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day8/rebuild_cache: phony src/day8/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day9
+
+
+#############################################
+# Order-only phony target for day9
+
+build cmake_object_order_depends_target_day9: phony || cmake_object_order_depends_target_aoc
+
+build src/day9/CMakeFiles/day9.dir/day9.cpp.o: CXX_COMPILER__day9_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day9/day9.cpp || cmake_object_order_depends_target_day9
+  DEP_FILE = src/day9/CMakeFiles/day9.dir/day9.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day9/CMakeFiles/day9.dir
+  OBJECT_FILE_DIR = src/day9/CMakeFiles/day9.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day9
+
+
+#############################################
+# Link the executable src/day9/day9
+
+build src/day9/day9: CXX_EXECUTABLE_LINKER__day9_Debug src/day9/CMakeFiles/day9.dir/day9.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day9/CMakeFiles/day9.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day9/day9
+  TARGET_PDB = day9.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day9/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day9 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day9/edit_cache: phony src/day9/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day9/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day9 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day9/rebuild_cache: phony src/day9/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day10
+
+
+#############################################
+# Order-only phony target for day10
+
+build cmake_object_order_depends_target_day10: phony || cmake_object_order_depends_target_aoc
+
+build src/day10/CMakeFiles/day10.dir/day10.cpp.o: CXX_COMPILER__day10_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day10/day10.cpp || cmake_object_order_depends_target_day10
+  DEP_FILE = src/day10/CMakeFiles/day10.dir/day10.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day10/CMakeFiles/day10.dir
+  OBJECT_FILE_DIR = src/day10/CMakeFiles/day10.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day10
+
+
+#############################################
+# Link the executable src/day10/day10
+
+build src/day10/day10: CXX_EXECUTABLE_LINKER__day10_Debug src/day10/CMakeFiles/day10.dir/day10.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day10/CMakeFiles/day10.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day10/day10
+  TARGET_PDB = day10.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day10/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day10 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day10/edit_cache: phony src/day10/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day10/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day10 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day10/rebuild_cache: phony src/day10/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day11
+
+
+#############################################
+# Order-only phony target for day11
+
+build cmake_object_order_depends_target_day11: phony || cmake_object_order_depends_target_aoc
+
+build src/day11/CMakeFiles/day11.dir/day11.cpp.o: CXX_COMPILER__day11_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day11/day11.cpp || cmake_object_order_depends_target_day11
+  DEP_FILE = src/day11/CMakeFiles/day11.dir/day11.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day11/CMakeFiles/day11.dir
+  OBJECT_FILE_DIR = src/day11/CMakeFiles/day11.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day11
+
+
+#############################################
+# Link the executable src/day11/day11
+
+build src/day11/day11: CXX_EXECUTABLE_LINKER__day11_Debug src/day11/CMakeFiles/day11.dir/day11.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day11/CMakeFiles/day11.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day11/day11
+  TARGET_PDB = day11.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day11/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day11 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day11/edit_cache: phony src/day11/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day11/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day11 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day11/rebuild_cache: phony src/day11/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day12
+
+
+#############################################
+# Order-only phony target for day12
+
+build cmake_object_order_depends_target_day12: phony || cmake_object_order_depends_target_aoc
+
+build src/day12/CMakeFiles/day12.dir/day12.cpp.o: CXX_COMPILER__day12_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day12/day12.cpp || cmake_object_order_depends_target_day12
+  DEP_FILE = src/day12/CMakeFiles/day12.dir/day12.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day12/CMakeFiles/day12.dir
+  OBJECT_FILE_DIR = src/day12/CMakeFiles/day12.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day12
+
+
+#############################################
+# Link the executable src/day12/day12
+
+build src/day12/day12: CXX_EXECUTABLE_LINKER__day12_Debug src/day12/CMakeFiles/day12.dir/day12.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day12/CMakeFiles/day12.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day12/day12
+  TARGET_PDB = day12.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day12/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day12 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day12/edit_cache: phony src/day12/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day12/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day12 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day12/rebuild_cache: phony src/day12/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day13
+
+
+#############################################
+# Order-only phony target for day13
+
+build cmake_object_order_depends_target_day13: phony || cmake_object_order_depends_target_aoc
+
+build src/day13/CMakeFiles/day13.dir/day13.cpp.o: CXX_COMPILER__day13_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day13/day13.cpp || cmake_object_order_depends_target_day13
+  DEP_FILE = src/day13/CMakeFiles/day13.dir/day13.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day13/CMakeFiles/day13.dir
+  OBJECT_FILE_DIR = src/day13/CMakeFiles/day13.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day13
+
+
+#############################################
+# Link the executable src/day13/day13
+
+build src/day13/day13: CXX_EXECUTABLE_LINKER__day13_Debug src/day13/CMakeFiles/day13.dir/day13.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day13/CMakeFiles/day13.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day13/day13
+  TARGET_PDB = day13.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day13/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day13 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day13/edit_cache: phony src/day13/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day13/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day13 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day13/rebuild_cache: phony src/day13/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day14
+
+
+#############################################
+# Order-only phony target for day14
+
+build cmake_object_order_depends_target_day14: phony || cmake_object_order_depends_target_aoc
+
+build src/day14/CMakeFiles/day14.dir/day14.cpp.o: CXX_COMPILER__day14_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day14/day14.cpp || cmake_object_order_depends_target_day14
+  DEP_FILE = src/day14/CMakeFiles/day14.dir/day14.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day14/CMakeFiles/day14.dir
+  OBJECT_FILE_DIR = src/day14/CMakeFiles/day14.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day14
+
+
+#############################################
+# Link the executable src/day14/day14
+
+build src/day14/day14: CXX_EXECUTABLE_LINKER__day14_Debug src/day14/CMakeFiles/day14.dir/day14.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day14/CMakeFiles/day14.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day14/day14
+  TARGET_PDB = day14.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day14/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day14 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day14/edit_cache: phony src/day14/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day14/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day14 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day14/rebuild_cache: phony src/day14/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day15
+
+
+#############################################
+# Order-only phony target for day15
+
+build cmake_object_order_depends_target_day15: phony || cmake_object_order_depends_target_aoc
+
+build src/day15/CMakeFiles/day15.dir/day15.cpp.o: CXX_COMPILER__day15_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day15/day15.cpp || cmake_object_order_depends_target_day15
+  DEP_FILE = src/day15/CMakeFiles/day15.dir/day15.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day15/CMakeFiles/day15.dir
+  OBJECT_FILE_DIR = src/day15/CMakeFiles/day15.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day15
+
+
+#############################################
+# Link the executable src/day15/day15
+
+build src/day15/day15: CXX_EXECUTABLE_LINKER__day15_Debug src/day15/CMakeFiles/day15.dir/day15.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day15/CMakeFiles/day15.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day15/day15
+  TARGET_PDB = day15.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day15/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day15 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day15/edit_cache: phony src/day15/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day15/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day15 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day15/rebuild_cache: phony src/day15/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# /Users/nlafarge/Projects/advent-of-code-2022/src/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day16
+
+
+#############################################
+# Order-only phony target for day16
+
+build cmake_object_order_depends_target_day16: phony || cmake_object_order_depends_target_aoc
+
+build src/day16/CMakeFiles/day16.dir/day16.cpp.o: CXX_COMPILER__day16_Debug /Users/nlafarge/Projects/advent-of-code-2022/src/day16/day16.cpp || cmake_object_order_depends_target_day16
+  DEP_FILE = src/day16/CMakeFiles/day16.dir/day16.cpp.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk -std=gnu++14
+  INCLUDES = -I/Users/nlafarge/Projects/advent-of-code-2022/include
+  OBJECT_DIR = src/day16/CMakeFiles/day16.dir
+  OBJECT_FILE_DIR = src/day16/CMakeFiles/day16.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day16
+
+
+#############################################
+# Link the executable src/day16/day16
+
+build src/day16/day16: CXX_EXECUTABLE_LINKER__day16_Debug src/day16/CMakeFiles/day16.dir/day16.cpp.o | src/libaoc.a || src/libaoc.a
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk
+  LINK_LIBRARIES = src/libaoc.a
+  OBJECT_DIR = src/day16/CMakeFiles/day16.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = src/day16/day16
+  TARGET_PDB = day16.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build src/day16/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day16 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src/day16/edit_cache: phony src/day16/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src/day16/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day16 && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/nlafarge/Projects/advent-of-code-2022 -B/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src/day16/rebuild_cache: phony src/day16/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+build aoc: phony src/libaoc.a
+
+build day10: phony src/day10/day10
+
+build day11: phony src/day11/day11
+
+build day12: phony src/day12/day12
+
+build day13: phony src/day13/day13
+
+build day14: phony src/day14/day14
+
+build day15: phony src/day15/day15
+
+build day16: phony src/day16/day16
+
+build day7: phony src/day7/day7
+
+build day8: phony src/day8/day8
+
+build day9: phony src/day9/day9
+
+build libaoc.a: phony src/libaoc.a
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug
+
+build all: phony src/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src
+
+build src/all: phony src/libaoc.a src/day7/all src/day8/all src/day9/all src/day10/all src/day11/all src/day12/all src/day13/all src/day14/all src/day15/all src/day16/all
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day10
+
+build src/day10/all: phony src/day10/day10
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day11
+
+build src/day11/all: phony src/day11/day11
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day12
+
+build src/day12/all: phony src/day12/day12
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day13
+
+build src/day13/all: phony src/day13/day13
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day14
+
+build src/day14/all: phony src/day14/day14
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day15
+
+build src/day15/all: phony src/day15/day15
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day16
+
+build src/day16/all: phony src/day16/day16
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day7
+
+build src/day7/all: phony src/day7/day7
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day8
+
+build src/day8/all: phony src/day8/day8
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug/src/day9
+
+build src/day9/all: phony src/day9/day9
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt ../src/CMakeLists.txt ../src/day10/CMakeLists.txt ../src/day11/CMakeLists.txt ../src/day12/CMakeLists.txt ../src/day13/CMakeLists.txt ../src/day14/CMakeLists.txt ../src/day15/CMakeLists.txt ../src/day16/CMakeLists.txt ../src/day7/CMakeLists.txt ../src/day8/CMakeLists.txt ../src/day9/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build ../CMakeLists.txt ../src/CMakeLists.txt ../src/day10/CMakeLists.txt ../src/day11/CMakeLists.txt ../src/day12/CMakeLists.txt ../src/day13/CMakeLists.txt ../src/day14/CMakeLists.txt ../src/day15/CMakeLists.txt ../src/day16/CMakeLists.txt ../src/day7/CMakeLists.txt ../src/day8/CMakeLists.txt ../src/day9/CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.23.2/CMakeCCompiler.cmake CMakeFiles/3.23.2/CMakeCXXCompiler.cmake CMakeFiles/3.23.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

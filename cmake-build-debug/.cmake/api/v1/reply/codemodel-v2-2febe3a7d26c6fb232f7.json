@@ -1,0 +1,329 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					],
+					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "src/day7",
+					"jsonFile" : "directory-src.day7-Debug-d307ff9ac5c3985286c9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day7",
+					"targetIndexes" : 
+					[
+						8
+					]
+				},
+				{
+					"build" : "src/day8",
+					"jsonFile" : "directory-src.day8-Debug-634f50ee414c9c794e9f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day8",
+					"targetIndexes" : 
+					[
+						9
+					]
+				},
+				{
+					"build" : "src/day9",
+					"jsonFile" : "directory-src.day9-Debug-4589dd4f689995572f2b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day9",
+					"targetIndexes" : 
+					[
+						10
+					]
+				},
+				{
+					"build" : "src/day10",
+					"jsonFile" : "directory-src.day10-Debug-cf032e361f9663fb20fd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day10",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "src/day11",
+					"jsonFile" : "directory-src.day11-Debug-34149d7b10670dc6f002.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day11",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "src/day12",
+					"jsonFile" : "directory-src.day12-Debug-528b693d15482ea6390a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day12",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "src/day13",
+					"jsonFile" : "directory-src.day13-Debug-9a1bc26049753aa58972.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day13",
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"build" : "src/day14",
+					"jsonFile" : "directory-src.day14-Debug-5a8215f081a6bfc0a23e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day14",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "src/day15",
+					"jsonFile" : "directory-src.day15-Debug-910d1012f60714062b1d.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day15",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "src/day16",
+					"jsonFile" : "directory-src.day16-Debug-0f65a62e3575374e7d39.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/day16",
+					"targetIndexes" : 
+					[
+						7
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					],
+					"name" : "scratch",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "aoc::@145eef247bfb46b6828c",
+					"jsonFile" : "target-aoc-Debug-daffa7181edc2623a25a.json",
+					"name" : "aoc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "day10::@02f70fd0039ce8bebe7c",
+					"jsonFile" : "target-day10-Debug-f26170316bd95ee8cdfc.json",
+					"name" : "day10",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "day11::@7f6898fa489777f8564c",
+					"jsonFile" : "target-day11-Debug-922efad90e18f0495e68.json",
+					"name" : "day11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "day12::@469cff25eb5837739f48",
+					"jsonFile" : "target-day12-Debug-62635663459f6cd35e06.json",
+					"name" : "day12",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "day13::@bc0eddddaf5427931311",
+					"jsonFile" : "target-day13-Debug-27972c21d8be9cd65522.json",
+					"name" : "day13",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 9,
+					"id" : "day14::@e4d749d6b6511d55608f",
+					"jsonFile" : "target-day14-Debug-1d7a5df4f4044ae74644.json",
+					"name" : "day14",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 10,
+					"id" : "day15::@760bc2b1a2bfa577ca31",
+					"jsonFile" : "target-day15-Debug-20001266e33387d31bc1.json",
+					"name" : "day15",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 11,
+					"id" : "day16::@990318b7655014991832",
+					"jsonFile" : "target-day16-Debug-a52090d86ad8a2e207fb.json",
+					"name" : "day16",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "day7::@4c252af9973628cf9690",
+					"jsonFile" : "target-day7-Debug-cb3f3966e64c23da08d4.json",
+					"name" : "day7",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "day8::@45e30556f9291a5325af",
+					"jsonFile" : "target-day8-Debug-b049e3d05921db3b8e5e.json",
+					"name" : "day8",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "day9::@94b77c921a8fe394804f",
+					"jsonFile" : "target-day9-Debug-2bca729faa59ef072584.json",
+					"name" : "day9",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/nlafarge/Projects/advent-of-code-2022/cmake-build-debug",
+		"source" : "/Users/nlafarge/Projects/advent-of-code-2022"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
